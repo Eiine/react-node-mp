@@ -1,0 +1,29 @@
+@keyframes t-stretch {
+    0% {
+        letter-spacing: 0px;
+    }
+
+    10% {
+        letter-spacing: 2px;
+    }
+
+    25% {
+        letter-spacing: 4px;
+    }
+
+    50% {
+        letter-spacing: 2px;
+    }
+
+    75% {
+        letter-spacing: 4px;
+    }
+
+    90% {
+        letter-spacing: 3px;
+    }
+
+    100% {
+        letter-spacing: 0px;
+    }
+}
