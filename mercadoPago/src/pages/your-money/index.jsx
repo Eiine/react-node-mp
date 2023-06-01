@@ -19,7 +19,7 @@ const YourMoney = () => {
 
   //Dejo Provisorio para mostrar al tl
   const { user } = useSelector((state) => state.auth);
-  const monto = user?.userLogin.balance;
+  const monto = user?.update.balance|| 0;
 
   const handlerOptions = () => {
     setModalOption(!modalOption);
