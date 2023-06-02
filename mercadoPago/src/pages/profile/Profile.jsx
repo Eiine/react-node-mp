@@ -13,11 +13,9 @@ import Layout from "../../components/layout";
 const Profile = () => {
   const { user } = useSelector((state) => state.auth);
   const [isView, setIsView] = useState(false);
+
   //Datos que usaré de user
-  const alias = user.update.alias;
-  const cvu = user.update.cvu;
-  const email = user.update.email;
- 
+  const { alias, cvu, email } = user.update;
   return (
     <>
       {/* <Header dato={'Tus Datos'} show={'flex'}/> */}
@@ -149,7 +147,7 @@ const Profile = () => {
         </div>
 
         <div>
-          <Item route={"/data"}
+          <Item
             icon={Dato}
             title={"Tus Datos"}
             description={"Datos Validados"}

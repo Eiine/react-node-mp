@@ -1,6 +1,6 @@
 import EmptyCard from "../empty-card";
 
-const CardInputStep3 = ({ color, dataForm, setDataForm }) => {
+const CardInputStep3 = ({ dataForm, setDataForm }) => {
   const handleChange = (e) => {
     setDataForm({
       ...dataForm,
@@ -11,7 +11,7 @@ const CardInputStep3 = ({ color, dataForm, setDataForm }) => {
   return (
     <>
       <div className="my-[56px]">
-        <EmptyCard color={color} dataForm={dataForm} />
+        <EmptyCard dataForm={dataForm} />
       </div>
       <div className="flex flex-col">
         <label

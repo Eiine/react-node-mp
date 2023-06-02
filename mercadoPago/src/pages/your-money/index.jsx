@@ -19,7 +19,7 @@ const YourMoney = () => {
 
   //Dejo Provisorio para mostrar al tl
   const { user } = useSelector((state) => state.auth);
-  const monto = user?.update.balance|| 0;
+  const balance = user.update.balance || 0;
 
   const handlerOptions = () => {
     setModalOption(!modalOption);
@@ -38,7 +38,7 @@ const YourMoney = () => {
             <div>
               <h2 className="font-medium">Dinero disponible</h2>
               <p className="my-1 font-semibold">
-                $<span className="ml-1"> {monto}</span>
+                $<span className="ml-1"> {balance}</span>
               </p>
             </div>
             <div className="relative">

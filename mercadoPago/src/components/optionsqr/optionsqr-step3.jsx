@@ -1,12 +1,12 @@
 import { AiOutlineClockCircle } from "react-icons/ai";
-import { IoMdCard } from "react-icons/io";
 import { BsCheck } from "react-icons/bs";
+import { IoMdCard } from "react-icons/io";
 import { Link } from "react-router-dom";
 
-const AddMoneyStep4 = ({ dataForm }) => {
+const OptionsQrStep3 = () => {
   return (
     <section className="flex flex-col items-center">
-      <div className="w-[328px] h-[488px] rounded-[10px] shadow-cardShadow mt-6">
+      <div className="w-[328px] h-[536px] rounded-[10px] shadow-cardShadow mt-6">
         <div className="h-[248px] bg-[#008744] rounded-t-[10px] flex flex-col items-center justify-center">
           <div className="w-[100px] h-[100px] rounded-full bg-white flex justify-center items-center relative">
             <svg
@@ -52,13 +52,16 @@ const AddMoneyStep4 = ({ dataForm }) => {
               />
             </svg>
           </span>
-          <p className="font-bold text-xs leading-[15px]">${dataForm}</p>
+          <p className="font-bold text-xs leading-[15px]">$2500</p>
         </div>
-        <div className="h-[80px] bg-white flex items-center justify-start gap-6 pl-8 rounded-b-[10px]">
-          <span className="rounded-full h-12 w-12 border-[1px] flex justify-center items-center">
-            <IoMdCard className="w-6 h-6" />
-          </span>
-          <p className="font-bold text-xs leading-[15px]">Visa ********1234</p>
+        <div className="h-[128px] bg-white flex flex-col justify-center items-start pl-[32px] gap-3 rounded-b-[10px]">
+          <p className="font-medium text-xs leading-[15px] text-[#ADADAD]">
+            Para
+          </p>
+          <p className="font-semibold text-base leading-5">Juan Gyldenfeldt</p>
+          <p className="font-medium text-xs leading-[15px]">
+            <span className="text-[#ADADAD]">CVU: </span>0000003456000581185568
+          </p>
         </div>
       </div>
       <div className="flex justify-center items-center gap-2 my-4">
@@ -79,4 +82,4 @@ const AddMoneyStep4 = ({ dataForm }) => {
   );
 };
 
-export default AddMoneyStep4;
+export default OptionsQrStep3;

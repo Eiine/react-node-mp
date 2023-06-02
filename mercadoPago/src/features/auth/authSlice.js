@@ -17,7 +17,7 @@ export const authSlice = createSlice({
       saveState(state);
     },
     logout(state) {
-      state.isLoggedInW = false;
+      state.isLoggedIn = false;
       state.user = "";
       saveState(state);
     },

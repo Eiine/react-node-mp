@@ -1,4 +1,8 @@
-const EmptyCardBack = ({ color, dataForm }) => {
+import { useSelector } from "react-redux";
+
+const EmptyCardBack = ({ dataForm }) => {
+  const { colorCard } = useSelector((state) => state.newCard);
+
   return (
     <div className="relative">
       <div className="absolute bottom-4 left-4 min-w-[58px] h-[32px] rounded bg-[#333333]/80 flex justify-center px-2 items-center">
@@ -59,8 +63,8 @@ const EmptyCardBack = ({ color, dataForm }) => {
             y2="216"
             gradientUnits="userSpaceOnUse"
           >
-            <stop stopColor={color?.color1} />
-            <stop offset="1" stopColor={color?.color1} />
+            <stop stopColor={colorCard?.color1} />
+            <stop offset="1" stopColor={colorCard?.color1} />
           </linearGradient>
           <linearGradient
             id="paint1_linear_916_1645"
@@ -70,8 +74,8 @@ const EmptyCardBack = ({ color, dataForm }) => {
             y2="150"
             gradientUnits="userSpaceOnUse"
           >
-            <stop stopColor={color?.color2} />
-            <stop offset="1" stopColor={color?.color2} />
+            <stop stopColor={colorCard?.color2} />
+            <stop offset="1" stopColor={colorCard?.color2} />
           </linearGradient>
           <linearGradient
             id="paint2_linear_916_1645"
@@ -81,8 +85,8 @@ const EmptyCardBack = ({ color, dataForm }) => {
             y2="197"
             gradientUnits="userSpaceOnUse"
           >
-            <stop stopColor={color?.color3} />
-            <stop offset="1" stopColor={color?.color3} />
+            <stop stopColor={colorCard?.color3} />
+            <stop offset="1" stopColor={colorCard?.color3} />
           </linearGradient>
           <clipPath id="clip0_916_1645">
             <rect

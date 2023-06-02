@@ -7,12 +7,6 @@ import CardInputStep4 from "./card-input-step/card-input-step4";
 import { useNavigate } from "react-router-dom";
 
 const CardsStep2 = ({ dataForm, setDataForm }) => {
-  const [color, setColor] = useState({
-    color1: "#DAD9E3",
-    color2: "#CFD1D9",
-    color3: "#C5C7CF",
-    image: "",
-  });
   const [inputActual, setInputActual] = useState(1);
   const navigate = useNavigate();
 
@@ -33,33 +27,16 @@ const CardsStep2 = ({ dataForm, setDataForm }) => {
   return (
     <section className="flex flex-col items-center justify-center">
       {inputActual === 1 && (
-        <CardInputStep1
-          dataForm={dataForm}
-          setDataForm={setDataForm}
-          color={color}
-          setColor={setColor}
-        />
+        <CardInputStep1 dataForm={dataForm} setDataForm={setDataForm} />
       )}
       {inputActual === 2 && (
-        <CardInputStep2
-          dataForm={dataForm}
-          setDataForm={setDataForm}
-          color={color}
-        />
+        <CardInputStep2 dataForm={dataForm} setDataForm={setDataForm} />
       )}
       {inputActual === 3 && (
-        <CardInputStep3
-          dataForm={dataForm}
-          setDataForm={setDataForm}
-          color={color}
-        />
+        <CardInputStep3 dataForm={dataForm} setDataForm={setDataForm} />
       )}
       {inputActual === 4 && (
-        <CardInputStep4
-          dataForm={dataForm}
-          setDataForm={setDataForm}
-          color={color}
-        />
+        <CardInputStep4 dataForm={dataForm} setDataForm={setDataForm} />
       )}
       <div className="flex gap-2 mt-10">
         <button
