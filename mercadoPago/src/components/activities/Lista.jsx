@@ -1,17 +1,14 @@
-import Item from "../activity/Item"
+//import Item from "../activity/Item"
 import { Link } from 'react-router-dom'
 
-const Lista = ({ time }) => {
+const Lista = ({ destinity, monto, id, hour }) => {
+    console.log("ID List: ", id)
     return (
         <>
-            <div className='mt-4 border-[#39528D] border-b-2 mb-2'>
-                <p className='text-[#39528D] font-semibold'>{time}</p>
-            </div>
-
             <div className='flex-col'>
                 <div className='mb-2'>
                 <div className={`rounded-[10px] h-20 bg-white`}>
-                    <Link to={'/activity/1'}>
+                <Link to={`/activity/${id}`}>
                         <div className="flex items-center p-4">
                             <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <rect width="48" height="48" rx="24" fill="#ECEBF6"/>
@@ -21,11 +18,11 @@ const Lista = ({ time }) => {
                             <div className="flex w-full justify-between">
                                 <div className="font-medium text-[12px] pl-2">
                                     <h2 className="">Transferencia recibida</h2>
-                                    <span className="text-[#33333366]">de XXX</span>
+                                    <span className="text-[#33333366]">de {destinity}</span>
                                 </div>
                                 <div className="flex-col ">
-                                    <p className="text-[#008744] font-semibold text-xs">+ $ 100</p>
-                                    <p className="text-[#33333366] font-medium text-xs pl-2">23:00</p>
+                                    <p className="text-[#008744] font-semibold text-xs">+ $ {monto}</p>
+                                    <p className="text-[#33333366] font-medium text-xs pl-2">{hour}</p>
                                 </div>
                             </div>
                         </div>

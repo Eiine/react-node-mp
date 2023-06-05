@@ -7,32 +7,12 @@ import {
 } from "react-icons/ai";
 import { useState } from "react";
 import useLogin from "../../../hooks/useLogin";
+import { ThreeDots } from "react-loader-spinner";
 
 const FormRegister = ({ handleClick }) => {
   const navigate = useNavigate();
   const [showPassword, setShowPassword] = useState(false);
   const [showPassword2, setShowPassword2] = useState(false);
-
-  const [confirmPassword, setConfirmPassword] = useState("");
-
-  const [dataForm, setDataForm] = useState({
-    email: "",
-    password: "",
-    // fullname: "",
-    dni: "",
-    // phone: "",
-    // address: "",
-  });
-
-  const { error, isLoading, postData } = useLogin({
-    onSuccess: (data) => {
-      navigate("/login");
-    },
-    onError: (error) => {
-      console.log(error);
-      console.log("Error en el servidor");
-    },
-  });
 
   const toggleShowPassword2 = () => {
     setShowPassword2(!showPassword2);
@@ -61,12 +41,9 @@ const FormRegister = ({ handleClick }) => {
   };
 
   return (
-    <form
-      className="flex flex-col items-center justify-center gap-2 "
-      onSubmit={handleSubmit}
-    >
+    <form className="flex flex-col items-center justify-center gap-2  ">
       <div className="w-[328px] h-[328px] bg-white rounded-[10px] shadow-cardShadow flex p-8 pl-4">
-        <div className="">
+        <div className=" ">
           <AiOutlineInfoCircle
             onClick={handleClick}
             className="w-6 h-6 mt-12     text-[#6F0B19]"
@@ -84,20 +61,17 @@ const FormRegister = ({ handleClick }) => {
             className="w-6 h-6 mt-8    text-[#6F0B19]"
           />
         </div>
-        <div className="flex flex-col mt-2 ">
+        <div className="flex flex-col  mt-2  ">
           <div className="">
             <div className="group ">
-              <label
-                className="font-semibold text-xs leading-[15px] pl-2 invisible group-hover:visible group-hover:text-[#39528D]"
-                htmlFor="email"
-              >
+              <label className="font-semibold text-xs leading-[15px] pl-2 invisible group-hover:visible group-hover:text-[#39528D]">
                 Correo electrónico
               </label>
               <input
                 id="email"
                 className="font-medium text-base leading-[16px] placeholder:text-black h-[48px] w-[272px] pl-2 focus:outline-none border-b-2 border-black group-hover:border-[#39528D] placeholder:focus-visible:invisible"
                 type="text"
-                onChange={handleChange}
+                // onChange={handleChange}
                 placeholder="Correo electrónico"
                 name="email"
               />
@@ -107,7 +81,7 @@ const FormRegister = ({ handleClick }) => {
           <div className="group">
             <label
               className="font-semibold text-xs leading-[15px] pl-2 invisible group-hover:visible group-hover:text-[#39528D]"
-              htmlFor="dni"
+              htmlFor="email"
             >
               DNI
             </label>
@@ -115,25 +89,24 @@ const FormRegister = ({ handleClick }) => {
               id="dni"
               className="font-medium text-base leading-[16px] placeholder:text-black h-[32px] w-[272px] pl-2 focus:outline-none border-b-2 border-black group-hover:border-[#39528D] placeholder:focus-visible:invisible"
               type="text"
-              onChange={handleChange}
+              // onChange={handleChange}
               placeholder="DNI"
               name="dni"
             />
           </div>
-          <div className="relative group">
+          <div className=" relative group">
             <label
               className="font-semibold text-xs leading-[15px] pl-2 invisible group-hover:visible group-hover:text-[#39528D]"
-              htmlFor="password"
+              htmlFor="email"
             >
               Contraseña
             </label>
             <input
-              id="password"
+              id="contraseña"
               className="font-medium text-base leading-[16px] placeholder:text-black h-[32px] w-[272px] pl-2 focus:outline-none border-b-2 border-black group-hover:border-[#39528D] placeholder:focus-visible:invisible"
               type={showPassword2 ? "text" : "password"}
-              onChange={handleChange}
               placeholder="contraseña"
-              name="password"
+              name="contraseña"
             />
             {showPassword2 ? (
               <AiOutlineEye
@@ -151,17 +124,16 @@ const FormRegister = ({ handleClick }) => {
             <div>
               <label
                 className="font-semibold text-xs leading-[15px] pl-2 invisible group-hover:visible group-hover:text-[#39528D]"
-                htmlFor="repassword"
+                htmlFor="pass"
               >
                 Confirmar contraseña
               </label>
               <input
-                id="repassword"
+                id="pass"
                 className="font-medium text-base leading-[16px] placeholder:text-black h-[32px] w-[272px] pl-2 focus:outline-none border-b-2 border-black block group-hover:border-[#39528D] placeholder:focus-visible:invisible"
                 type={showPassword ? "text" : "password"}
                 placeholder="confirmar contraseña"
-                onChange={handleConfirmPasswordChange}
-                name="repassword"
+                name="confirmar contraseña"
               />
               {showPassword ? (
                 <AiOutlineEye
@@ -178,6 +150,20 @@ const FormRegister = ({ handleClick }) => {
           </div>
         </div>
       </div>
+      {isLoading ? (
+        <ThreeDots
+          height="60"
+          width="80"
+          radius="9"
+          color="#4fa94d"
+          ariaLabel="three-dots-loading"
+          wrapperStyle={{}}
+          wrapperClassName=""
+          visible={isLoading}
+        />
+      ) : (
+        ""
+      )}
       <button
         type="submit"
         className="text-lg font-semibold leading-[22px] text-white w-[328px] h-[48px] bg-[#10224D] rounded-[10px]"
@@ -195,6 +181,7 @@ const FormRegister = ({ handleClick }) => {
         </Link>
       </div>
     </form>
+   
   );
 };
 

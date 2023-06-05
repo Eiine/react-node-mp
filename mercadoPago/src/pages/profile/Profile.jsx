@@ -12,7 +12,7 @@ import Layout from "../../components/layout";
 
 const Profile = () => {
   const { user } = useSelector((state) => state.auth);
-  const [isView, setIsView] = useState(false);
+  const [isView, setIsView] = useState(true);
 
   //Datos que usaré de user
   const { alias, cvu, email } = user.update;
@@ -151,21 +151,25 @@ const Profile = () => {
             icon={Dato}
             title={"Tus Datos"}
             description={"Datos Validados"}
+            data={'/data'}
           />
           <Item
             icon={Seguridad}
             title={"Seguridad"}
             description={"Tenés Configuraciones Pendientes."}
+            data={'#'}
           />
           <Item
             icon={Tarjeta}
             title={"Tarjetas"}
             description={"Tarjetas guardadas en tu cuenta."}
+            data={'/cards'}
           />
           <Item
             icon={Direction}
             title={"Direcciones"}
             description={"Direcciones guardadas en tu cuenta."}
+            data={'#'}
           />
         </div>
       </Layout>

@@ -5,9 +5,12 @@ import brand from "../../assets/brand.svg";
 import { Card } from "../../components/landing/Card";
 import { cardsData } from "./cardsData";
 
+
 const LandingPage = () => {
   return (
+   
     <div className="container mx-auto min-w-[340px] max-w-[1440px]">
+   
       <header className="max-auto">
         <nav className="flex justify-between px-3 items-center py-1">
           <img src={brand} alt="brand" />

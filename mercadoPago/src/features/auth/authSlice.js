@@ -26,8 +26,13 @@ export const authSlice = createSlice({
       saveState(state);
       return state;
     },
+    updateAmount(state, action) {
+      state.user.balance = Number(state.user.balance - action.payload);
+      saveState(state);
+      return state;
+    },
   },
 });
 
-export const { login, logout, updateData } = authSlice.actions;
+export const { login, logout, updateData, updateAmount } = authSlice.actions;
 export default authSlice.reducer;

@@ -2,10 +2,13 @@ import EmptyCard from "../empty-card";
 
 const CardInputStep2 = ({ dataForm, setDataForm }) => {
   const handleChange = (e) => {
-    setDataForm({
-      ...dataForm,
-      [e.target.name]: e.target.value,
-    });
+    const value = e.target.value;
+    if (value.length <= 15) {
+      setDataForm({
+        ...dataForm,
+        [e.target.name]: e.target.value,
+      });
+    }
   };
 
   return (
@@ -21,6 +24,7 @@ const CardInputStep2 = ({ dataForm, setDataForm }) => {
           Nombre y apellido
         </label>
         <input
+          value={dataForm.namecard}
           name="namecard"
           onChange={handleChange}
           className="w-[272px] h-[30px] focus:outline-none border-b-2 border-[#39528D] bg-[#ECEBF6] font-medium text-base leading-[20px] [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none"

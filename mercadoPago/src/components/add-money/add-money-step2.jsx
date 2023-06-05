@@ -1,13 +1,13 @@
 import { useState } from "react";
 
-const AddMoneyStep2 = ({ onNext, dataForm, setDataForm }) => {
+const AddMoneyStep2 = ({ onNext, setDataForm }) => {
   const [data, setData] = useState(0);
   const [botonDeshabilitado, setBotonDeshabilitado] = useState(true);
 
   const handleChange = (e) => {
-    setDataForm(e.target.value);
+    setDataForm((prev) => ({ ...prev, balance: Number(e.target.value) }));
     setData(e.target.value);
-    if (e.target.value > 0) {
+    if (data > 0) {
       setBotonDeshabilitado("");
     }
   };

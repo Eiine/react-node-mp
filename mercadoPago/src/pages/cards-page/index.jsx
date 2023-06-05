@@ -1,6 +1,6 @@
 import { useState } from "react";
 import CardsStep1 from "../../components/cads-components/cards-step1";
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { AiOutlineQuestionCircle } from "react-icons/ai";
 import { FiArrowLeft } from "react-icons/fi";
 import CardsStep2 from "../../components/cads-components/cards-step2";
@@ -19,13 +19,14 @@ const CardsPage = () => {
       setPantallaActual(pantallaActual + 1);
     }
   };
+
+  const navigate = useNavigate()
+
   return (
     <section>
       <div className="bg-[#10224D] shadow-cardShadow w-full h-[10vh] flex items-center text-white justify-between pl-6 pr-[26px]">
         <div className="flex items-center gap-6">
-          <Link to="/home">
-            <FiArrowLeft className="text-2xl cursor-pointer" />
-          </Link>
+          <FiArrowLeft className="text-2xl cursor-pointer" onClick={() => navigate(history.back())} />
           <p className="pr-24 font-semibold">Tarjetas</p>
         </div>
         <div className="flex gap-[26px]">

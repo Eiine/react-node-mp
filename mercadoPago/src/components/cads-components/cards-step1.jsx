@@ -1,14 +1,14 @@
 import { FiPlus } from "react-icons/fi";
-import AddTarjetas from "./addTarjetas";
 import { useSelector } from "react-redux";
 import cactus from "../../assets/cactus.svg";
+import AllCards from "./allCards";
 
 const CardsStep1 = ({ onNext }) => {
   const { update } = useSelector((state) => state.auth.user);
   const { cards } = update;
   return (
     <>
-      {cards ? (
+      {cards.lenght > 0 ? (
         <div className="flex flex-col items-center">
           <div className="mb-8 mt-[54px]">
             <img src={cactus} alt="" />
@@ -30,7 +30,7 @@ const CardsStep1 = ({ onNext }) => {
         </div>
       ) : (
         <div className="flex flex-col items-center justify-between w-full h-full">
-          <AddTarjetas />
+          <AllCards />
           <div className="h-[96px] w-full bg-white shadow-cardShadow flex justify-center items-center">
             <div
               onClick={onNext}

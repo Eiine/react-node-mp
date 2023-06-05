@@ -3,7 +3,9 @@ import { IoMdCard } from "react-icons/io";
 import { BsCheck } from "react-icons/bs";
 import { Link } from "react-router-dom";
 
-const AddMoneyStep4 = ({ dataForm }) => {
+const AddMoneyStep4 = ({ dataForm, currentDateTime }) => {
+  const { balance, cardNumber, bank } = dataForm;
+  const ultimosCuatro = String(cardNumber).slice(-4);
   return (
     <section className="flex flex-col items-center">
       <div className="w-[328px] h-[488px] rounded-[10px] shadow-cardShadow mt-6">
@@ -33,9 +35,7 @@ const AddMoneyStep4 = ({ dataForm }) => {
           <span className="rounded-full h-12 w-12 border-[1px] flex justify-center items-center">
             <AiOutlineClockCircle className="w-6 h-6" />
           </span>
-          <p className="font-bold text-xs leading-[15px]">
-            26 de mayo 2023 - 23:00hs.
-          </p>
+          <p className="font-bold text-xs leading-[15px]">{currentDateTime}</p>
         </div>
         <div className="h-[80px] bg-white flex items-center justify-start gap-6 pl-8">
           <span className="rounded-full h-12 w-12 border-[1px] flex justify-center items-center">
@@ -52,16 +52,18 @@ const AddMoneyStep4 = ({ dataForm }) => {
               />
             </svg>
           </span>
-          <p className="font-bold text-xs leading-[15px]">${dataForm}</p>
+          <p className="font-bold text-xs leading-[15px]">${balance}</p>
         </div>
         <div className="h-[80px] bg-white flex items-center justify-start gap-6 pl-8 rounded-b-[10px]">
           <span className="rounded-full h-12 w-12 border-[1px] flex justify-center items-center">
             <IoMdCard className="w-6 h-6" />
           </span>
-          <p className="font-bold text-xs leading-[15px]">Visa ********1234</p>
+          <p className="font-bold text-xs leading-[15px]">
+            {bank} ********{ultimosCuatro}
+          </p>
         </div>
       </div>
-      <div className="flex justify-center items-center gap-2 my-4">
+      <div className="flex items-center justify-center my-4">
         <Link to={"/home"}>
           <div className="w-[160px] h-[48px] flex justify-center items-center">
             <p className="text-[#10224D] font-bold text-sm leading-[17px] cursor-pointer">
@@ -69,11 +71,6 @@ const AddMoneyStep4 = ({ dataForm }) => {
             </p>
           </div>
         </Link>
-        <div className="w-[160px] h-[48px] bg-[#10224D] rounded-[10px] flex justify-center items-center">
-          <p className="text-white font-semibold text-sm leading-[17px]">
-            Ver comprobante
-          </p>
-        </div>
       </div>
     </section>
   );

@@ -9,11 +9,16 @@ const CardInputStep1 = ({ dataForm, setDataForm }) => {
   const dispatch = useDispatch();
 
   const handleChange = (e) => {
-    setDataForm({
-      ...dataForm,
-      [e.target.name]: e.target.value,
-    });
+    const value = e.target.value;
+    if (value.length <= 16) {
+      setDataForm({
+        ...dataForm,
+        [e.target.name]: e.target.value,
+      });
+    }
+
     const typeCard = dataForm.numbercard.charAt(0);
+
     if (typeCard == 3) {
       dispatch(
         addColor({
@@ -58,6 +63,7 @@ const CardInputStep1 = ({ dataForm, setDataForm }) => {
         </label>
         <input
           name="numbercard"
+          // value={dataForm.numbercard}
           onChange={handleChange}
           className="w-[272px] h-[30px] focus:outline-none border-b-2 border-[#39528D] bg-[#ECEBF6] font-medium text-base leading-[20px] [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none"
           id="numbercard"

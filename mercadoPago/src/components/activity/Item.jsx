@@ -1,9 +1,9 @@
 import { Link } from 'react-router-dom'
 
-const Item = ({alias, border}) => {
+const Item = ({alias, monto, hora,id, border}) => {
     return (
         <div className={`${border} h-20 bg-white`}>
-            <Link to={'/activity/1'}>
+            <Link to={`/activity/${id}`}>
                 <div className="flex items-center p-4">
                     <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <rect width="48" height="48" rx="24" fill="#ECEBF6"/>
@@ -16,8 +16,8 @@ const Item = ({alias, border}) => {
                             <span className="text-[#33333366]">de {alias}</span>
                         </div>
                         <div className="flex-col ">
-                            <p className="text-[#008744] font-semibold text-xs">+ $ 100</p>
-                            <p className="text-[#33333366] font-medium text-xs pl-2">23:00</p>
+                            <p className="text-[#008744] font-semibold text-xs">+ $ {monto}</p>
+                            <p className="text-[#33333366] font-medium text-xs pl-2">{hora}</p>
                         </div>
                     </div>
                 </div>

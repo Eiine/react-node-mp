@@ -1,0 +1,19 @@
+<svg width="116" height="120" viewBox="0 0 116 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+<rect width="116" height="120" rx="10" fill="#AACCFF" fill-opacity="0.2"/>
+<rect x="1" y="1" width="114" height="118" rx="9" stroke="#696969" stroke-opacity="0.2" stroke-width="2"/>
+<rect x="7" y="10" width="102" height="30" rx="10" fill="white"/>
+<rect x="8" y="11" width="100" height="28" rx="9" stroke="#696969" stroke-opacity="0.2" stroke-width="2"/>
+<circle cx="22" cy="23" r="6" fill="#696969" fill-opacity="0.2"/>
+<line x1="36" y1="19" x2="84" y2="19" stroke="#696969" stroke-opacity="0.2" stroke-width="4"/>
+<line x1="36" y1="28" x2="57" y2="28" stroke="#696969" stroke-opacity="0.2" stroke-width="2"/>
+<rect x="7" y="48" width="98" height="28" rx="10" fill="white"/>
+<rect x="8" y="49" width="96" height="26" rx="9" stroke="#696969" stroke-opacity="0.2" stroke-width="2"/>
+<circle cx="23" cy="61" r="6" fill="#696969" fill-opacity="0.2"/>
+<line x1="37" y1="57" x2="85" y2="57" stroke="#696969" stroke-opacity="0.2" stroke-width="4"/>
+<line x1="37" y1="66" x2="58" y2="66" stroke="#696969" stroke-opacity="0.2" stroke-width="2"/>
+<rect x="7" y="84" width="92" height="26" rx="10" fill="white"/>
+<rect x="8" y="85" width="90" height="24" rx="9" stroke="#696969" stroke-opacity="0.2" stroke-width="2"/>
+<circle cx="22" cy="96" r="6" fill="#696969" fill-opacity="0.2"/>
+<line x1="35" y1="93" x2="83" y2="93" stroke="#696969" stroke-opacity="0.2" stroke-width="4"/>
+<line x1="35" y1="102" x2="56" y2="102" stroke="#696969" stroke-opacity="0.2" stroke-width="2"/>
+</svg>

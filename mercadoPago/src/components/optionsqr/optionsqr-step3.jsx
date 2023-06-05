@@ -1,9 +1,10 @@
 import { AiOutlineClockCircle } from "react-icons/ai";
 import { BsCheck } from "react-icons/bs";
-import { IoMdCard } from "react-icons/io";
 import { Link } from "react-router-dom";
 
-const OptionsQrStep3 = () => {
+const OptionsQrStep3 = ({ onNext, scannedData, currentDateTime }) => {
+  const { user, mount } = scannedData;
+  const { fullname, cvu } = user;
   return (
     <section className="flex flex-col items-center">
       <div className="w-[328px] h-[536px] rounded-[10px] shadow-cardShadow mt-6">
@@ -34,7 +35,8 @@ const OptionsQrStep3 = () => {
             <AiOutlineClockCircle className="w-6 h-6" />
           </span>
           <p className="font-bold text-xs leading-[15px]">
-            26 de mayo 2023 - 23:00hs.
+            {/* 26 de mayo 2023 - 23:00hs. */}
+            {currentDateTime}
           </p>
         </div>
         <div className="h-[80px] bg-white flex items-center justify-start gap-6 pl-8">
@@ -52,19 +54,20 @@ const OptionsQrStep3 = () => {
               />
             </svg>
           </span>
-          <p className="font-bold text-xs leading-[15px]">$2500</p>
+          <p className="font-bold text-xs leading-[15px]">${mount}</p>
         </div>
         <div className="h-[128px] bg-white flex flex-col justify-center items-start pl-[32px] gap-3 rounded-b-[10px]">
           <p className="font-medium text-xs leading-[15px] text-[#ADADAD]">
             Para
           </p>
-          <p className="font-semibold text-base leading-5">Juan Gyldenfeldt</p>
+          <p className="text-base font-semibold leading-5">{fullname}</p>
           <p className="font-medium text-xs leading-[15px]">
-            <span className="text-[#ADADAD]">CVU: </span>0000003456000581185568
+            <span className="text-[#ADADAD]">CVU: </span>
+            {cvu}
           </p>
         </div>
       </div>
-      <div className="flex justify-center items-center gap-2 my-4">
+      <div className="flex items-center justify-center gap-2 my-4">
         <Link to={"/home"}>
           <div className="w-[160px] h-[48px] flex justify-center items-center">
             <p className="text-[#10224D] font-bold text-sm leading-[17px] cursor-pointer">
@@ -72,7 +75,10 @@ const OptionsQrStep3 = () => {
             </p>
           </div>
         </Link>
-        <div className="w-[160px] h-[48px] bg-[#10224D] rounded-[10px] flex justify-center items-center">
+        <div
+          onClick={onNext}
+          className="w-[160px] h-[48px] bg-[#10224D] rounded-[10px] flex justify-center items-center cursor-pointer"
+        >
           <p className="text-white font-semibold text-sm leading-[17px]">
             Ver comprobante
           </p>

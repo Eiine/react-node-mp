@@ -62,7 +62,7 @@ const YourMoney = () => {
             </div>
             <div className="text-base text-[#39528D] font-semibold mt-2">
               <Link
-                to={"/activities"}
+                to={"/activity"}
                 className="flex items-center justify-between"
               >
                 Ver toda tu actividad

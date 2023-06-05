@@ -6,7 +6,7 @@ import { useState } from "react";
 import { Modal } from "../../components/yourData/Modal";
 import { DataContext } from "../../context/DataContext";
 import { format } from "../../helpers/formatPhoneFunctions";
-import { ThreeDots } from "react-loader-spinner";
+import { LoadingModal } from "../../components/LoadingModal";
 
 const YourData = () => {
   const { update } = useSelector((state) => state.auth.user);
@@ -41,19 +41,7 @@ const YourData = () => {
         {modal && (
           <Modal type={modal[0]} modal={modal} handleModal={handleModal} />
         )}
-        {loading ? (
-          <div className=" top-0 left-0 absolute  w-screen h-screen flex justify-center items-center">
-            <ThreeDots
-              height="80"
-              width="80"
-              radius="9"
-              color="#39528D"
-              ariaLabel="three-dots-loading"
-              wrapperStyle
-              wrapperClass
-            />
-          </div>
-        ) : null}
+        {loading ? <LoadingModal /> : null}
       </DataContext.Provider>
     </section>
   );

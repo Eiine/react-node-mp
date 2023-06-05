@@ -1,6 +1,9 @@
 import { AiOutlineMenu, AiOutlineQuestionCircle } from "react-icons/ai";
+import { useNavigate } from "react-router-dom";
 
 const Navbar = ({ dato, menu }) => {
+  const navigate = useNavigate()
+
   return (
     <div className="bg-[#10224D] shadow-cardShadow h-16 flex items-center text-white justify-between pl-6 pr-[26px]">
       <div className="flex items-center gap-6">
@@ -8,7 +11,7 @@ const Navbar = ({ dato, menu }) => {
         <p className="pr-24 font-semibold">{dato}</p>
       </div>
       <div className="flex gap-[26px]">
-        <AiOutlineQuestionCircle className="w-6 h-6" />
+        <AiOutlineQuestionCircle className="w-6 h-6 cursor-pointer" onClick={() => navigate('/help')}/>
         <svg
           width="20"
           height="24"
