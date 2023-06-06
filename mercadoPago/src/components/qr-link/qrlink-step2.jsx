@@ -13,7 +13,7 @@ const QrLinkStep2 = ({ onNext, dataForm }) => {
   const { data, isLoading, error } = useQr(`/auth/qr/${alias}/${dataForm}`);
   const printRef = useRef(null);
   const API_URL = import.meta.env.VITE_PUBLIC_API_URL;
-  const url = `${API_URL}/payperlink/${_id}/${dataForm}`;
+  const url = `https://react-node-mp.vercel.app/payperlink/${_id}/${dataForm}`;
   const handlePrintQRCode = (download = true) => {
     if (printRef.current) {
       handleImageFromElement(
