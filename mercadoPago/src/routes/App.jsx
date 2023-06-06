@@ -24,6 +24,8 @@ import { Amount } from "../pages/transfer/amount";
 
 import Help from "../pages/help/Help";
 import { Preview } from "../pages/transfer/preview";
+import { Confirm } from "../pages/transfer/confirmation";
+import PayPerLink from "../pages/pay-per-link";
 
 function App() {
   return (
@@ -32,7 +34,6 @@ function App() {
         <Route index element={<LandingPage />} />
         <Route path="*" element={<ErrorPage />} />
         <Route path="/login" element={<LoginPage />} />
-        <Route path="/qrlink" element={<QrLink />} />
 
         <Route path="/register" element={<RegisterPage />} />
         <Route element={<UserRouteProtected />}>
@@ -50,8 +51,12 @@ function App() {
             <Route path="check" element={<TransferCheck />} />
             <Route path="amount" element={<Amount />} />
             <Route path="preview" element={<Preview />} />
+            <Route path="confirm" element={<Confirm />} />
           </Route>
           <Route path="/help" element={<Help />} />
+          <Route path="/qrlink" element={<QrLink />} />
+          <Route path="/qrscanner" element={<QrScanner />} />
+          <Route path="/payperlink/:id/:mount" element={<PayPerLink />} />
         </Route>
       </Routes>
     </BrowserRouter>

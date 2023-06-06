@@ -1,4 +1,3 @@
-import React from "react";
 import { Link, useNavigate } from "react-router-dom";
 import {
   AiOutlineEye,
@@ -13,6 +12,27 @@ const FormRegister = ({ handleClick }) => {
   const navigate = useNavigate();
   const [showPassword, setShowPassword] = useState(false);
   const [showPassword2, setShowPassword2] = useState(false);
+
+  const [confirmPassword, setConfirmPassword] = useState("");
+
+  const [dataForm, setDataForm] = useState({
+    email: "",
+    password: "",
+    // fullname: "",
+    dni: "",
+    // phone: "",
+    // address: "",
+  });
+
+  const { error, isLoading, postData } = useLogin({
+    onSuccess: (data) => {
+      navigate("/login");
+    },
+    onError: (error) => {
+      console.log(error);
+      console.log("Error en el servidor");
+    },
+  });
 
   const toggleShowPassword2 = () => {
     setShowPassword2(!showPassword2);
@@ -41,9 +61,12 @@ const FormRegister = ({ handleClick }) => {
   };
 
   return (
-    <form className="flex flex-col items-center justify-center gap-2  ">
+    <form
+      className="flex flex-col items-center justify-center gap-2 "
+      onSubmit={handleSubmit}
+    >
       <div className="w-[328px] h-[328px] bg-white rounded-[10px] shadow-cardShadow flex p-8 pl-4">
-        <div className=" ">
+        <div className="">
           <AiOutlineInfoCircle
             onClick={handleClick}
             className="w-6 h-6 mt-12     text-[#6F0B19]"
@@ -61,17 +84,20 @@ const FormRegister = ({ handleClick }) => {
             className="w-6 h-6 mt-8    text-[#6F0B19]"
           />
         </div>
-        <div className="flex flex-col  mt-2  ">
+        <div className="flex flex-col mt-2 ">
           <div className="">
             <div className="group ">
-              <label className="font-semibold text-xs leading-[15px] pl-2 invisible group-hover:visible group-hover:text-[#39528D]">
+              <label
+                className="font-semibold text-xs leading-[15px] pl-2 invisible group-hover:visible group-hover:text-[#39528D]"
+                htmlFor="email"
+              >
                 Correo electrónico
               </label>
               <input
                 id="email"
                 className="font-medium text-base leading-[16px] placeholder:text-black h-[48px] w-[272px] pl-2 focus:outline-none border-b-2 border-black group-hover:border-[#39528D] placeholder:focus-visible:invisible"
                 type="text"
-                // onChange={handleChange}
+                onChange={handleChange}
                 placeholder="Correo electrónico"
                 name="email"
               />
@@ -81,7 +107,7 @@ const FormRegister = ({ handleClick }) => {
           <div className="group">
             <label
               className="font-semibold text-xs leading-[15px] pl-2 invisible group-hover:visible group-hover:text-[#39528D]"
-              htmlFor="email"
+              htmlFor="dni"
             >
               DNI
             </label>
@@ -89,24 +115,25 @@ const FormRegister = ({ handleClick }) => {
               id="dni"
               className="font-medium text-base leading-[16px] placeholder:text-black h-[32px] w-[272px] pl-2 focus:outline-none border-b-2 border-black group-hover:border-[#39528D] placeholder:focus-visible:invisible"
               type="text"
-              // onChange={handleChange}
+              onChange={handleChange}
               placeholder="DNI"
               name="dni"
             />
           </div>
-          <div className=" relative group">
+          <div className="relative group">
             <label
               className="font-semibold text-xs leading-[15px] pl-2 invisible group-hover:visible group-hover:text-[#39528D]"
-              htmlFor="email"
+              htmlFor="password"
             >
               Contraseña
             </label>
             <input
-              id="contraseña"
+              id="password"
               className="font-medium text-base leading-[16px] placeholder:text-black h-[32px] w-[272px] pl-2 focus:outline-none border-b-2 border-black group-hover:border-[#39528D] placeholder:focus-visible:invisible"
               type={showPassword2 ? "text" : "password"}
+              onChange={handleChange}
               placeholder="contraseña"
-              name="contraseña"
+              name="password"
             />
             {showPassword2 ? (
               <AiOutlineEye
@@ -124,16 +151,17 @@ const FormRegister = ({ handleClick }) => {
             <div>
               <label
                 className="font-semibold text-xs leading-[15px] pl-2 invisible group-hover:visible group-hover:text-[#39528D]"
-                htmlFor="pass"
+                htmlFor="repassword"
               >
                 Confirmar contraseña
               </label>
               <input
-                id="pass"
+                id="repassword"
                 className="font-medium text-base leading-[16px] placeholder:text-black h-[32px] w-[272px] pl-2 focus:outline-none border-b-2 border-black block group-hover:border-[#39528D] placeholder:focus-visible:invisible"
                 type={showPassword ? "text" : "password"}
                 placeholder="confirmar contraseña"
-                name="confirmar contraseña"
+                onChange={handleConfirmPasswordChange}
+                name="repassword"
               />
               {showPassword ? (
                 <AiOutlineEye
@@ -181,7 +209,6 @@ const FormRegister = ({ handleClick }) => {
         </Link>
       </div>
     </form>
-   
   );
 };
 

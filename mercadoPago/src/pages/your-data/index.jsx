@@ -7,6 +7,7 @@ import { Modal } from "../../components/yourData/Modal";
 import { DataContext } from "../../context/DataContext";
 import { format } from "../../helpers/formatPhoneFunctions";
 import { LoadingModal } from "../../components/LoadingModal";
+import Layout from "../../components/layout";
 
 const YourData = () => {
   const { update } = useSelector((state) => state.auth.user);
@@ -28,22 +29,28 @@ const YourData = () => {
   const handleLoading = (val) => setloading(val);
 
   return (
-    <section className="min-w-[340px] px-4 py-5 flex flex-col items-center">
-      <article className="bg-white px-3 py-4 rounded-md shadow-md w-full max-w-[600px]">
-        <AccountData data={data} modal={modal} handleModal={handleModal} />
-      </article>
-      <DataContext.Provider
-        value={{ phone: format(String(phone)), loading, handleLoading }}
-      >
-        <article className="bg-white px-3 py-4 rounded-md shadow-md mt-5 w-full max-w-[600px]">
-          <PersonalDataForm dni={dni} modal={modal} handleModal={handleModal} />
+    <Layout>
+      <section className="min-w-[340px] px-4 py-5 flex flex-col items-center">
+        <article className="bg-white px-3 py-4 rounded-md shadow-md w-full max-w-[600px]">
+          <AccountData data={data} modal={modal} handleModal={handleModal} />
         </article>
-        {modal && (
-          <Modal type={modal[0]} modal={modal} handleModal={handleModal} />
-        )}
-        {loading ? <LoadingModal /> : null}
-      </DataContext.Provider>
-    </section>
+        <DataContext.Provider
+          value={{ phone: format(String(phone)), loading, handleLoading }}
+        >
+          <article className="bg-white px-3 py-4 rounded-md shadow-md mt-5 w-full max-w-[600px]">
+            <PersonalDataForm
+              dni={dni}
+              modal={modal}
+              handleModal={handleModal}
+            />
+          </article>
+          {modal && (
+            <Modal type={modal[0]} modal={modal} handleModal={handleModal} />
+          )}
+          {loading ? <LoadingModal /> : null}
+        </DataContext.Provider>
+      </section>
+    </Layout>
   );
 };
 

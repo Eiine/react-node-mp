@@ -1,4 +1,3 @@
-import React from "react";
 import { Link } from "react-router-dom";
 import Layout from "../../components/layout";
 
@@ -32,7 +31,7 @@ const Transfer = () => {
                     height="47"
                     rx="23.5"
                     stroke="#333333"
-                    stroke-opacity="0.1"
+                    strokeOpacity="0.1"
                   />
                 </svg>
                 <div className="flex w-full justify-between">
@@ -79,7 +78,7 @@ const Transfer = () => {
                     height="120"
                     rx="10"
                     fill="#AACCFF"
-                    fill-opacity="0.2"
+                    fillOpacity="0.2"
                   />
                   <rect
                     x="1"
@@ -88,8 +87,8 @@ const Transfer = () => {
                     height="118"
                     rx="9"
                     stroke="#696969"
-                    stroke-opacity="0.2"
-                    stroke-width="2"
+                    strokeOpacity="0.2"
+                    strokeWidth="2"
                   />
                   <rect
                     x="7"
@@ -106,15 +105,15 @@ const Transfer = () => {
                     height="28"
                     rx="9"
                     stroke="#696969"
-                    stroke-opacity="0.2"
-                    stroke-width="2"
+                    strokeOpacity="0.2"
+                    strokeWidth="2"
                   />
                   <circle
                     cx="22"
                     cy="23"
                     r="6"
                     fill="#696969"
-                    fill-opacity="0.2"
+                    fillOpacity="0.2"
                   />
                   <line
                     x1="36"
@@ -122,8 +121,8 @@ const Transfer = () => {
                     x2="84"
                     y2="19"
                     stroke="#696969"
-                    stroke-opacity="0.2"
-                    stroke-width="4"
+                    strokeOpacity="0.2"
+                    strokeWidth="4"
                   />
                   <line
                     x1="36"
@@ -131,8 +130,8 @@ const Transfer = () => {
                     x2="57"
                     y2="28"
                     stroke="#696969"
-                    stroke-opacity="0.2"
-                    stroke-width="2"
+                    strokeOpacity="0.2"
+                    strokeWidth="2"
                   />
                   <rect
                     x="7"
@@ -149,15 +148,15 @@ const Transfer = () => {
                     height="26"
                     rx="9"
                     stroke="#696969"
-                    stroke-opacity="0.2"
-                    stroke-width="2"
+                    strokeOpacity="0.2"
+                    strokeWidth="2"
                   />
                   <circle
                     cx="23"
                     cy="61"
                     r="6"
                     fill="#696969"
-                    fill-opacity="0.2"
+                    fillOpacity="0.2"
                   />
                   <line
                     x1="37"
@@ -165,8 +164,8 @@ const Transfer = () => {
                     x2="85"
                     y2="57"
                     stroke="#696969"
-                    stroke-opacity="0.2"
-                    stroke-width="4"
+                    strokeOpacity="0.2"
+                    strokeWidth="4"
                   />
                   <line
                     x1="37"
@@ -174,8 +173,8 @@ const Transfer = () => {
                     x2="58"
                     y2="66"
                     stroke="#696969"
-                    stroke-opacity="0.2"
-                    stroke-width="2"
+                    strokeOpacity="0.2"
+                    strokeWidth="2"
                   />
                   <rect
                     x="7"
@@ -192,15 +191,15 @@ const Transfer = () => {
                     height="24"
                     rx="9"
                     stroke="#696969"
-                    stroke-opacity="0.2"
-                    stroke-width="2"
+                    strokeOpacity="0.2"
+                    strokeWidth="2"
                   />
                   <circle
                     cx="22"
                     cy="96"
                     r="6"
                     fill="#696969"
-                    fill-opacity="0.2"
+                    fillOpacity="0.2"
                   />
                   <line
                     x1="35"
@@ -208,8 +207,8 @@ const Transfer = () => {
                     x2="83"
                     y2="93"
                     stroke="#696969"
-                    stroke-opacity="0.2"
-                    stroke-width="4"
+                    strokeOpacity="0.2"
+                    strokeWidth="4"
                   />
                   <line
                     x1="35"
@@ -217,8 +216,8 @@ const Transfer = () => {
                     x2="56"
                     y2="102"
                     stroke="#696969"
-                    stroke-opacity="0.2"
-                    stroke-width="2"
+                    strokeOpacity="0.2"
+                    strokeWidth="2"
                   />
                 </svg>
               </div>

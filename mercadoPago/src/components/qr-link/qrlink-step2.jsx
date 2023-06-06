@@ -4,15 +4,16 @@ import { useSelector } from "react-redux";
 import useQr from "../../hooks/useQr";
 import { useRef } from "react";
 import { handleImageFromElement } from "../../utils/downloadImage/downloadImage";
-
+import copy from "../../utils/copy";
 import { ThreeDots } from "react-loader-spinner";
 
 const QrLinkStep2 = ({ onNext, dataForm }) => {
   const { user } = useSelector((state) => state.auth);
-  const { alias, fullname } = user.update;
+  const { alias, fullname, _id } = user.update;
   const { data, isLoading, error } = useQr(`/auth/qr/${alias}/${dataForm}`);
   const printRef = useRef(null);
-
+  const API_URL = import.meta.env.VITE_PUBLIC_API_URL;
+  const url = `${API_URL}/payperlink/${_id}/${dataForm}`;
   const handlePrintQRCode = (download = true) => {
     if (printRef.current) {
       handleImageFromElement(
@@ -43,7 +44,6 @@ const QrLinkStep2 = ({ onNext, dataForm }) => {
               visible={isLoading}
             />
           ) : (
-            // <a href={data?.url} download>
             <img className="w-full h-full" src={data?.url} alt="" />
           )}
         </div>
@@ -56,11 +56,12 @@ const QrLinkStep2 = ({ onNext, dataForm }) => {
           <TbDownload className="w-10 h-10 text-white" />
         </div>
       </div>
-      <div className="relative w-[328px] h-[56px] shadow-cardShadow rounded-[10px] mt-[16px] bg-white flex justify-start items-center">
-        <p className="font-semibold text-lg leading-[21px] pl-4">
-          http:/www.cobro-wp-user...
-        </p>
-        <div className="absolute h-[56px] w-[56px] bg-[#10224D] shadow-cardShadow rounded-[10px] top-0 right-0 flex justify-center items-center">
+      <div className="relative w-[328px] h-[56px] shadow-cardShadow rounded-[10px] mt-[16px] bg-white flex justify-start items-center text-ellipsis overflow-hidden ">
+        <p className="font-semibold text-lg leading-[21px] pl-4">{url}</p>
+        <div
+          onClick={() => copy(url)}
+          className="absolute h-[56px] w-[56px] bg-[#10224D] shadow-cardShadow rounded-[10px] top-0 right-0 flex justify-center items-center cursor-pointer"
+        >
           <MdContentCopy className="w-8 h-8 text-white" />
         </div>
       </div>

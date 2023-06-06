@@ -1,11 +1,12 @@
 import { AiOutlineClockCircle, AiOutlineInfoCircle } from "react-icons/ai";
 import useTranfer from "../../hooks/useTranfer";
-import { useSelector } from "react-redux";
 import { ThreeDots } from "react-loader-spinner";
+import { useSelector } from "react-redux";
 
 const AddMoneyStep3 = ({ onNext, dataForm, setDataForm }) => {
   const { update } = useSelector((state) => state.auth.user);
   const { _id } = update;
+
   const { cardNumber, bank } = dataForm;
   const ultimosCuatro = String(cardNumber).slice(-4);
   const {
@@ -88,7 +89,7 @@ const AddMoneyStep3 = ({ onNext, dataForm, setDataForm }) => {
         height="60"
         width="80"
         radius="9"
-        color="#4fa94d"
+        color="#1e6bb9"
         ariaLabel="three-dots-loading"
         wrapperStyle={{}}
         wrapperClassName=""

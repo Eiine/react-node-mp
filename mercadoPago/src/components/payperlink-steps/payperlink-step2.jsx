@@ -1,20 +1,11 @@
 import { AiOutlineClockCircle } from "react-icons/ai";
-import { IoMdCard } from "react-icons/io";
 import { BsCheck } from "react-icons/bs";
 import { Link } from "react-router-dom";
-import { useDispatch } from "react-redux";
-import { updateAmount } from "../../features/auth/authSlice";
 
-const AddMoneyStep4 = ({ dataForm, currentDateTime }) => {
-  const { balance, cardNumber, bank } = dataForm;
-
-  const dispatch = useDispatch();
-  dispatch(updateAmount({ operation: "suma", value: balance }));
-
-  const ultimosCuatro = String(cardNumber).slice(-4);
+const PayPerLinkStep2 = ({ onNext, currentDateTime, dataLink, data }) => {
   return (
     <section className="flex flex-col items-center">
-      <div className="w-[328px] h-[488px] rounded-[10px] shadow-cardShadow mt-6">
+      <div className="w-[328px] h-[536px] rounded-[10px] shadow-cardShadow mt-6">
         <div className="h-[248px] bg-[#008744] rounded-t-[10px] flex flex-col items-center justify-center">
           <div className="w-[100px] h-[100px] rounded-full bg-white flex justify-center items-center relative">
             <svg
@@ -34,7 +25,7 @@ const AddMoneyStep4 = ({ dataForm, currentDateTime }) => {
             </span>
           </div>
           <p className="text-white font-bold text-2xl leading-[29px] mx-4 text-center">
-            Ya ingresamos tu dinero
+            Ya Transferimos tu dinero
           </p>
         </div>
         <div className="h-[80px] bg-white flex items-center justify-start gap-6 pl-8">
@@ -58,18 +49,22 @@ const AddMoneyStep4 = ({ dataForm, currentDateTime }) => {
               />
             </svg>
           </span>
-          <p className="font-bold text-xs leading-[15px]">${balance}</p>
+          <p className="font-bold text-xs leading-[15px]">${dataLink.mount}</p>
         </div>
-        <div className="h-[80px] bg-white flex items-center justify-start gap-6 pl-8 rounded-b-[10px]">
-          <span className="rounded-full h-12 w-12 border-[1px] flex justify-center items-center">
-            <IoMdCard className="w-6 h-6" />
-          </span>
-          <p className="font-bold text-xs leading-[15px]">
-            {bank} ********{ultimosCuatro}
+        <div className="h-[128px] bg-white flex flex-col justify-center items-start pl-[32px] gap-3 rounded-b-[10px]">
+          <p className="font-medium text-xs leading-[15px] text-[#ADADAD]">
+            Para
+          </p>
+          <p className="text-base font-semibold leading-5">
+            {data.user.fullname}
+          </p>
+          <p className="font-medium text-xs leading-[15px]">
+            <span className="text-[#ADADAD]">CVU: </span>
+            {data.user.cvu}
           </p>
         </div>
       </div>
-      <div className="flex items-center justify-center my-4">
+      <div className="flex items-center justify-center gap-2 my-4">
         <Link to={"/home"}>
           <div className="w-[160px] h-[48px] flex justify-center items-center">
             <p className="text-[#10224D] font-bold text-sm leading-[17px] cursor-pointer">
@@ -77,9 +72,17 @@ const AddMoneyStep4 = ({ dataForm, currentDateTime }) => {
             </p>
           </div>
         </Link>
+        <div
+          onClick={onNext}
+          className="w-[160px] h-[48px] bg-[#10224D] rounded-[10px] flex justify-center items-center cursor-pointer"
+        >
+          <p className="text-white font-semibold text-sm leading-[17px]">
+            Ver comprobante
+          </p>
+        </div>
       </div>
     </section>
   );
 };
 
-export default AddMoneyStep4;
+export default PayPerLinkStep2;

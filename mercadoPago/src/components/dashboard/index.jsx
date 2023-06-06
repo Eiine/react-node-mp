@@ -89,7 +89,6 @@ const Dashboard = ({ open, setOpen }) => {
               </div>
 
               <h2
-              
                 className={`whitespace-pre duration-300  ${
                   !open && "opacity-0 translate-x-28 overflow-hidden "
                 }`}
@@ -108,7 +107,10 @@ const Dashboard = ({ open, setOpen }) => {
         </div>
         <div className="group flex items-center text-base ml-4 mt-6">
           <FiLogOut size="24" className="" />
-          <button className="text-center m-4 font-semibold whitespace-pre text-gray-900 ">
+          <button
+            onClick={handleLogout}
+            className="text-center m-4 font-semibold whitespace-pre text-gray-900 "
+          >
             salir
           </button>
         </div>

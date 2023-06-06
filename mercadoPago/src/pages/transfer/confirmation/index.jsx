@@ -1,17 +1,13 @@
+import moment from "moment";
 import { AiOutlineClockCircle } from "react-icons/ai";
-import { IoMdCard } from "react-icons/io";
 import { BsCheck } from "react-icons/bs";
-import { Link } from "react-router-dom";
-import { useDispatch } from "react-redux";
-import { updateAmount } from "../../features/auth/authSlice";
+import { IoMdCard } from "react-icons/io";
+import { Link, useLocation } from "react-router-dom";
+import { formatPrice } from "../../../helpers/formatPrice";
 
-const AddMoneyStep4 = ({ dataForm, currentDateTime }) => {
-  const { balance, cardNumber, bank } = dataForm;
-
-  const dispatch = useDispatch();
-  dispatch(updateAmount({ operation: "suma", value: balance }));
-
-  const ultimosCuatro = String(cardNumber).slice(-4);
+export const Confirm = () => {
+  const currentDateTime = moment().format("DD [de] MMMM YYYY - HH:mm[hs.]");
+  const { state } = useLocation();
   return (
     <section className="flex flex-col items-center">
       <div className="w-[328px] h-[488px] rounded-[10px] shadow-cardShadow mt-6">
@@ -34,7 +30,7 @@ const AddMoneyStep4 = ({ dataForm, currentDateTime }) => {
             </span>
           </div>
           <p className="text-white font-bold text-2xl leading-[29px] mx-4 text-center">
-            Ya ingresamos tu dinero
+            Ya enviamos tu transferencia
           </p>
         </div>
         <div className="h-[80px] bg-white flex items-center justify-start gap-6 pl-8">
@@ -58,20 +54,21 @@ const AddMoneyStep4 = ({ dataForm, currentDateTime }) => {
               />
             </svg>
           </span>
-          <p className="font-bold text-xs leading-[15px]">${balance}</p>
-        </div>
-        <div className="h-[80px] bg-white flex items-center justify-start gap-6 pl-8 rounded-b-[10px]">
-          <span className="rounded-full h-12 w-12 border-[1px] flex justify-center items-center">
-            <IoMdCard className="w-6 h-6" />
-          </span>
           <p className="font-bold text-xs leading-[15px]">
-            {bank} ********{ultimosCuatro}
+            {formatPrice(state.value)}
           </p>
         </div>
+        <div className=" bg-white flex flex-col  justify-start gap-6 pl-8 rounded-b-[10px] pb-5">
+          <p className=" text-xs">Para</p>
+          <p className="font-semibold text-base leading-[15px]">
+            {state.receptor}
+          </p>
+          <p className=" font-medium text-base leading-[15px]">WalletPay</p>
+        </div>
       </div>
-      <div className="flex items-center justify-center my-4">
-        <Link to={"/home"}>
-          <div className="w-[160px] h-[48px] flex justify-center items-center">
+      <div className="flex items-center justify-center my-4 mt-5">
+        <Link to={"/home"} replace>
+          <div className="w-[160px] h-[48px] flex justify-center items-center mt-3">
             <p className="text-[#10224D] font-bold text-sm leading-[17px] cursor-pointer">
               Ir al inicio
             </p>
@@ -81,5 +78,3 @@ const AddMoneyStep4 = ({ dataForm, currentDateTime }) => {
     </section>
   );
 };
-
-export default AddMoneyStep4;

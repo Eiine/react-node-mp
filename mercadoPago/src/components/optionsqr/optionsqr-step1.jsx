@@ -4,7 +4,6 @@ import Scanner from "./scanner";
 import qrscreen from "../../assets/qrscreen.svg";
 
 const OptionsQrStep1 = ({ onNext, setScannedData }) => {
-  const [result, setResult] = useState("");
   const [camera, setCamera] = useState(false);
 
   const readCode = (e) => {
@@ -15,7 +14,8 @@ const OptionsQrStep1 = ({ onNext, setScannedData }) => {
     QrScanner.scanImage(file, { returnDetailedScanResult: true })
       .then((result) => {
         const dataParsed = JSON.parse(result.data);
-        console.log(dataParsed);
+        setScannedData(dataParsed);
+        onNext();
       })
       .catch((err) => console.log(err));
   };

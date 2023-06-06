@@ -27,17 +27,14 @@ const OptionsQrStep3 = ({ onNext, scannedData, currentDateTime }) => {
             </span>
           </div>
           <p className="text-white font-bold text-2xl leading-[29px] mx-4 text-center">
-            Ya ingresamos tu dinero
+            Ya Transferimos tu dinero
           </p>
         </div>
         <div className="h-[80px] bg-white flex items-center justify-start gap-6 pl-8">
           <span className="rounded-full h-12 w-12 border-[1px] flex justify-center items-center">
             <AiOutlineClockCircle className="w-6 h-6" />
           </span>
-          <p className="font-bold text-xs leading-[15px]">
-            {/* 26 de mayo 2023 - 23:00hs. */}
-            {currentDateTime}
-          </p>
+          <p className="font-bold text-xs leading-[15px]">{currentDateTime}</p>
         </div>
         <div className="h-[80px] bg-white flex items-center justify-start gap-6 pl-8">
           <span className="rounded-full h-12 w-12 border-[1px] flex justify-center items-center">

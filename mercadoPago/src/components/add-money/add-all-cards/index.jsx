@@ -9,6 +9,8 @@ const AddAllCards = ({ onNext, setDataForm }) => {
   const { cards } = user?.update;
 
   const handleClick = (number, cvv, bank) => {
+    console.log(number);
+
     setDataForm((prev) => ({
       ...prev,
       cardNumber: number,
